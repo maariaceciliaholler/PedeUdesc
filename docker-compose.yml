@@ -5,7 +5,7 @@ services:
     build:
       context: .
     ports:
-      - "80:80"
+      - 80:80
     volumes: 
       - .:/var/www/html
     depends_on:
@@ -29,12 +29,10 @@ services:
       POSTGRES_DB: my_db
     ports:
       # essas sao as portas que tu vai liberar. (de:até) no caso aqui, da 5432 até 5432, ou seja, vai liberar uma só
-      - "5432:5432"
+      - 5432:5432
     # se tu quiser acessar esse banco em algum sgbd, tu precisa expor a porta pra fora do container, senão elas so
     # sao acessadas de dentro pra dentro
     # pra deploy por exemplo tu vai expor a 80 só, o resto deixa rodando tudo dentro do container. 
     # usa um nginx da vida pra fazer o proxy e redirecioanr as portas
-    expose:
-      - "5432:5432"
 volumes:
   postgres_volume:
