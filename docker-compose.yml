@@ -2,12 +2,13 @@ version: '3'
 
 services:
   php:
+    image: php 7.2-apache
     build: .
     ports:
       - "80:80"
       - "443:443"
     volumes: 
-      - ./www:/var/www/html
+      - /php:/var/www/html
   db:
     image: postgres
     restart: always
