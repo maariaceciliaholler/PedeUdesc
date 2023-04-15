@@ -1,5 +1,13 @@
 FROM php:7.2-apache
 
-RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
+WORKDIR /var/www/html
 
-COPY src/ /var/www/html
+# vai copiar teu projeto la pra dentro do container
+COPY . /var/www/html/
+# nao precisa do sudo. dentro do container tu sempre é o super usuário
+RUN apt-get update
+
+
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql

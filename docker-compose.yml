@@ -1,16 +1,40 @@
 version: '3'
 
 services:
-  php:
-    image: php 7.2-apache
-    build: .
+  php_project:
+    build:
+      context: .
     ports:
       - "80:80"
-      - "443:443"
     volumes: 
-      - /php:/var/www/html
-  db:
-    image: postgres
+      - .:/var/www/html
+    depends_on:
+      - database_service
+  database_service:
+    image: postgres:12
     restart: always
+    volumes:
+      #  
+      # isso aqui é um volume nomeado. eles precisam estar na sessão de volumes
+      # consegues fazer um volume de-para também, ai podes apontar o teu diretório local com o diretório dentro do container
+      # - my/local/path:path/inside/container
+      # isso faz com que tudo que tu mudar localmente, troca automaticamente dentro do container
+      # aqui tu precisa de um volume pro banco, senão quando tu baixar o container vais perder tudo
+      - postgres_volume:/data/postgres
+    # variaveis de ambiente pro serviço funcionar. quando tu criar o serviço a primeira vez, a imagem do pg vai
+    # criar um banco chamado ${POSTGRES_DB} com o teu usuario e a tua senha
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: '12345'
+      POSTGRES_USER: my_user
+      POSTGRES_DB: my_db
+    ports:
+      # essas sao as portas que tu vai liberar. (de:até) no caso aqui, da 5432 até 5432, ou seja, vai liberar uma só
+      - "5432:5432"
+    # se tu quiser acessar esse banco em algum sgbd, tu precisa expor a porta pra fora do container, senão elas so
+    # sao acessadas de dentro pra dentro
+    # pra deploy por exemplo tu vai expor a 80 só, o resto deixa rodando tudo dentro do container. 
+    # usa um nginx da vida pra fazer o proxy e redirecioanr as portas
+    expose:
+      - "5432:5432"
+volumes:
+  postgres_volume:
