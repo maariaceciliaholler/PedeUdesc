@@ -326,7 +326,7 @@ button {
     text-align: center;
 }
 .contact_bt {
-    width: 100%;
+    width: 100px;
     float: right;
 }
 .contact_bt a{
@@ -854,7 +854,7 @@ a:hover {
     padding: 20px;
     margin-top: 25px;
     border: 100px;
-    border-radius: 100px;
+    border-radius: 10px;
 }
 input.email-bt::placeholder {
     color: #989696;
