@@ -253,25 +253,30 @@ button {
 }
 
 .search_icon{
-    width: 12%;
-    float: left;
+    width: 7%;
+    color: #000;
+    font-size: 18px;
+    display: inline-block;
 }
 .search_icon ul{
     margin: 0px;
     padding: 0px;
+    display: inline-block;
+    
 }
 .search_icon li {
     float: left;
     padding-left: 20px;
     font-size: 18px;
     color: #000;
+    display: inline-block;
 }
 .search_icon li a{
     color: #000;
+    display: inline-block;
+
 }
-.search_icon li a:hover{
-    color: #72DB8F;
-}
+
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 20px;
     padding-left: 20px;
@@ -294,25 +299,27 @@ button {
 .banner_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/alunos_index.png);
     height: auto;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
     background-size: 100%;
-    background-repeat: no-repeat;
+
+    
 }
 .icon_1{
     width: 100%;
     float: left;
     text-align: center;
 }
-.furniture_text{
-    width: 100%;
+
+.quadrado{
     float: left;
-    font-size: 100px;
-    color: #090808;
-    text-align: center;
-    text-transform: uppercase;
+    width: 100px;
+    height: 100px;
+    shape-outside: inset(20px 5px 30px 10px round 50px);
+    background: lightblue;
 }
+
 .there_text {
     width: 50%;
     margin: 0 auto;
@@ -509,6 +516,7 @@ button {
     color: #121111;
     text-transform: uppercase;
     text-align: center;
+    padding: 0px;
 }
 .ipsum_text{
     width: 100%;
@@ -721,11 +729,12 @@ a:hover {
     float: left;
     font-size: 20px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #030303;
     position: relative;
     top: -50px;
     text-align: center;
     z-index: 22;
+
 }
 #main_slider a.carousel-control-prev {
     position: absolute;
