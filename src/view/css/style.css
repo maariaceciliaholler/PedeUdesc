@@ -362,9 +362,9 @@ button {
     position: absolute;
     left: -153px;
     top: 57%;
-    background-color: #000;
+    background-color: #726f6f;
     color: #ffffff;
-    border-radius: 100px;
+    border-radius: 80px;
 }
 
 #costum_slider a.carousel-control-next {
@@ -375,14 +375,14 @@ button {
 #costum_slider .carousel-control-prev, #costum_slider .carousel-control-next {
     width: 85px;
     height: 85px;
-    background: #000;
+    background: #8a8888;
     opacity: 1;
     font-size: 30px;
     color: #fff;
     border-radius: 100px;
 }
 #costum_slider .carousel-control-prev:hover, #costum_slider .carousel-control-next:hover, #costum_slider .carousel-control-prev:focus, #costum_slider .carousel-control-next:focus {
-    background: #f8ca12;
+    background: #8cf9b9;
     color: #fff;
 }
 
@@ -536,6 +536,7 @@ button {
   position: relative;
   width: 100%;
   max-width: 100%;
+  align-items: end;
 }
 
 a:hover {
@@ -670,13 +671,13 @@ a:hover {
 .container_main1 {
     /* position: relative; */
     width: 100%;
+    align-items: end;
 }
 
 .image {
   opacity: 1;
   display: block;
   width: 100%;
-  height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
 }
@@ -732,7 +733,7 @@ a:hover {
     color: #030303;
     position: relative;
     top: -50px;
-    text-align: center;
+    text-align:center;
     z-index: 22;
 
 }
@@ -740,8 +741,9 @@ a:hover {
     position: absolute;
     left: -94px;
     top: 57%;
-    background-color: #000;
+    background-color: #72DB8F;
     color: #ffffff;
+    height: 30px;
 }
 
 #main_slider a.carousel-control-next {
@@ -752,13 +754,14 @@ a:hover {
 #main_slider .carousel-control-prev, #main_slider .carousel-control-next {
     width: 65px;
     height: 65px;
-    background: #000;
+    background: #72DB8F;
     opacity: 1;
     font-size: 30px;
     color: #fff;
+    height: 30px;
 }
 #main_slider .carousel-control-prev:hover, #main_slider .carousel-control-next:hover, #main_slider .carousel-control-prev:focus, #main_slider .carousel-control-next:focus {
-    background: #f8ca12;
+    background: #539c68;
     color: #fff;
 }
 .clients_section {
