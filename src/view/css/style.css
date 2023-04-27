@@ -531,7 +531,7 @@ button {
     width: 100%;
     float: left;
     text-align: left;
-    align-items: left;
+    align-items: center;
 }
 
 .container_main {
@@ -561,7 +561,7 @@ a:hover {
     width: 42%;
     opacity: 0;
     transition: .3s ease;
-    background-color: #fabc26;
+    background-color: #72DB8F;
     margin: 0 auto;
     border-radius: 100px;
     top: 55px;
@@ -589,7 +589,7 @@ a:hover {
     width: 100%;
     float: left;
     font-size: 18px;
-    color: #fabb25;
+    color: #72DB8F;
     text-transform: uppercase;
     font-weight: bold;
     padding-top: 35px;
@@ -1028,7 +1028,7 @@ textarea#comment::placeholder {
     color: #000;
 }
 .copyright_text a:hover{
-    color: #fdbe28;
+    color: #72DB8F;
 }
 
 
