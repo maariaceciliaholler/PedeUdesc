@@ -5,5 +5,3 @@ Para rodar a aplicação na porta 8080
 docker-compose up -d --build
 
 docker build -t minha_imagem .
-
-docker run -p 8080:80 minha_imagem
