@@ -515,7 +515,7 @@ button {
     font-size: 36px;
     color: #121111;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     padding: 0px;
 }
 .ipsum_text{
@@ -523,13 +523,15 @@ button {
     float: left;
     font-size: 16px;
     color: #090808;
-    text-align: center;
+    text-align: left;
     margin-left: 0px;
     margin-top: 10px;
 }
 .furnitures_section2{
     width: 100%;
     float: left;
+    text-align: left;
+    align-items: left;
 }
 
 .container_main {
