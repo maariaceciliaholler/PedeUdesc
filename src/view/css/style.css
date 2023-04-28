@@ -299,12 +299,10 @@ button {
 .banner_section {
     width: 100%;
     float: left;
-    background-image: url(../images/alunos_index.png);
+    background-image: url(../images/banner-bg.png);
     height: auto;
     padding-bottom: 80px;
     background-size: 100%;
-
-    
 }
 .icon_1{
     width: 100%;
