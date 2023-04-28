@@ -283,7 +283,8 @@ button {
 }
 
 .nav-item {
-    position: relative;
+    margin-right: 1px;
+    float: right;
 }
 
 .navbar-nav.mr-auto ul {
