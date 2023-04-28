@@ -704,10 +704,10 @@ a:hover {
 }
 
 .text {
-    color: #fff;
+    color: #000; /*era branco*/
     font-size: 16px;
     padding: 10px 20px;
-    border: 2px solid #fff;
+    border: 2px solid #000;
 }
 .container_main2 {
     width: 100%;
@@ -719,7 +719,7 @@ a:hover {
     top: 0;
     width: 92%;
     height: 90%;
-    background-color: rgb(255,182,7,.6);
+    background-color: #72db9063;
     z-index: 11;
     display: none;
 }
