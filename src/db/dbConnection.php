@@ -6,6 +6,6 @@ try {
         die("Conexão falhou com o Banco de Dados falhou!");
     }
     echo "Conexão efetuada com o Banco de Dados efetuada com sucesso!";
-} catch (error) {
-    echo pg_last_error();
+} catch (Exception $e) {
+    echo $e->getCode();
 }
