@@ -15,11 +15,6 @@ class Product
         $this->img = $img;
     }
 
-<<<<<<< HEAD
-    /*
-        Operações básicas de persistência de dados 
-    */
-=======
 //------------------------------------------------------//
     //Operações básicas de acesso ao objeto
 //------------------------------------------------------//
@@ -28,7 +23,6 @@ class Product
 //------------------------------------------------------//
        // Operações básicas de persistência de dados 
 //------------------------------------------------------//
->>>>>>> 3fb5dd5 (style: ajustado comentarios)
     /*
         Insert na tabela definida conforme os atributos passados pelo construtor da classe.
     */
@@ -96,9 +90,6 @@ class Product
     public function selectProduct()
     {
         //Aqui será inserido o código referente a seleção
-<<<<<<< HEAD
-=======
         $strsql = "SELECT * FROM shsistema.tbproduto;";
->>>>>>> 3fb5dd5 (style: ajustado comentarios)
     }
 }

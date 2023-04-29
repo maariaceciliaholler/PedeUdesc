@@ -16,7 +16,10 @@ class Person{
     }
 
     /*
-        Operações básicas de persistência de dados
+        Operações básicas de persistência de dados 
+    */
+    /*
+        Insert na tabela definida conforme os atributos passados pelo construtor da classe.
     */
 
     public function insertNewPerson()
@@ -24,9 +27,35 @@ class Person{
         //
 
         $strsql = "INSERT INTO
-                    shsistema.tbpessoa ()
+                    shsistema.tbpessoa (
+                        nome_pessoa,
+                        telefone_pessoa,
+                        email,
+                        senha
+                    )
+                    VALUES (
+                        ".$this->name.",
+                        ".$this->phone.",
+                        ".$this->mail.",
+                        ".$this->password."
+                    );";
+    }
 
-        "
+    /*
+        Delete na tabela definida
+    */
+
+    public function deletePerson()
+    {
+        //Aqui será inserido o código referente a alterações
+    }
+
+    /*
+        Select na tabela definida.
+    */
+    public function selectPerson()
+    {
+        //Aqui será inserido o código referente a seleção
     }
 }
 
