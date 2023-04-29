@@ -1,7 +1,6 @@
 <?php
-require_once 'db_connection.php';
 
-class Person{
+abstract class Person{ //ver se é assim ou é interface
     private $name;
     private $phone;
     private $mail;
@@ -15,11 +14,27 @@ class Person{
         $this->password = $password;
     }
 
+    //------------------------------------------------------//
+    //Operações básicas de acesso ao objeto:
+    //------------------------------------------------------//
+
+    public function get($property)
+    {
+        return $this->$property;
+    }
+
+
+    public function set($property, $value)
+    {
+        $this->$property = $value;
+    }
+
+    //------------------------------------------------------//
+    // Operações básicas de persistência de dados:
+    //------------------------------------------------------//
+
     /*
-        Operações básicas de persistência de dados 
-    */
-    /*
-        Insert na tabela definida conforme os atributos passados pelo construtor da classe.
+        Insert na tabela definida.
     */
 
     public function insertNewPerson()
@@ -42,20 +57,63 @@ class Person{
     }
 
     /*
-        Delete na tabela definida
+        Update na tabela definida.
+    */
+    
+    public function updatePerson()
+    {
+        //Aqui será inserido o código referente a alterações
+        $strsql = "UPDATE 
+                    shsistema.tbpessoa (
+                        nome_pessoa,
+                        telefone_pessoa,
+                        email,
+                        senha
+                    )
+                    VALUES (
+                        ".$this->name.",
+                        ".$this->phone.",
+                        ".$this->mail.",
+                        ".$this->password."
+                    );";
+    }
+
+    /*
+        Delete na tabela definida.
     */
 
     public function deletePerson()
     {
         //Aqui será inserido o código referente a alterações
+        $strsql = "DELETE 
+                    shsistema.tbpessoa (
+                        nome_pessoa,
+                        telefone_pessoa,
+                        email,
+                        senha
+                    )
+                    VALUES (
+                        ".$this->name.",
+                        ".$this->phone.",
+                        ".$this->mail.",
+                        ".$this->password."
+                    );";
     }
 
     /*
         Select na tabela definida.
     */
-    public function selectPerson()
+
+    public function selectPerson($value)
     {
         //Aqui será inserido o código referente a seleção
+        $strgsql = "SELECT $value FROM shsistema.tbpessoa";
+    }
+
+    public function listPerson()
+    {
+        //Aqui será inserido o código referente a seleção
+        $strgsql = "SELECT * FROM shsistema.tbpessoa";
     }
 }
 
