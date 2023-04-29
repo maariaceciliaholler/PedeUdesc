@@ -82,22 +82,10 @@ abstract class Person{ //ver se é assim ou é interface
         Delete na tabela definida.
     */
 
-    public function deletePerson()
+    public function deletePerson($property, $value)
     {
         //Aqui será inserido o código referente a alterações
-        $strsql = "DELETE 
-                    shsistema.tbpessoa (
-                        nome_pessoa,
-                        telefone_pessoa,
-                        email,
-                        senha
-                    )
-                    VALUES (
-                        ".$this->name.",
-                        ".$this->phone.",
-                        ".$this->mail.",
-                        ".$this->password."
-                    );";
+        $strsql = "DELETE FROM shsistema.tbpessoa WHERE $property = $value";
     }
 
     /*
