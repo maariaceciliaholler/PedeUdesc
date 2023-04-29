@@ -2,8 +2,9 @@
 
 class Order{
     private $id;
+    private $date_order_closure;
 
-    function __construct($id)
+    function __construct($id, $date_order_closure)
     {
         $this->id = $id;
         $this->date_order_closure = $date_order_closure;
