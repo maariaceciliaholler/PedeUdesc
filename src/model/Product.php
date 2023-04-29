@@ -79,7 +79,7 @@ class Product
     }
 
     /*
-        Delete na tabela definida.
+        Delete na tabela definida
     */
     public function deleteProduct()
     {
