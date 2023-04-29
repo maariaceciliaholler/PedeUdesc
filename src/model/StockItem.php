@@ -1,6 +1,6 @@
 <?php
 
-class Client extends Person{
+class StockItem{
     private $id;
 
     function __construct($id)
@@ -30,12 +30,12 @@ class Client extends Person{
         Insert na tabela definida.
     */
 
-    public function insertNewClient()
+    public function insertNewStockItem()
     {
         //Aqui será inserido o código referente a alterações
         $strsql = "INSERT INTO 
-                    shsistema.tbcliente (
-                        id_cliente
+                    shsistema.tbitemestoque (
+                        id_itemestoque
                     ) 
                     VALUES (
                         ".$this->id."
@@ -46,12 +46,12 @@ class Client extends Person{
         Update na tabela definida.
     */
 
-    public function updateClient()
+    public function updateStockItem()
     {
         //Aqui será inserido o código referente a alterações
         $strsql = "UPDATE 
-                    shsistema.tbcliente (
-                        id_cliente
+                    shsistema.tbitemestoque (
+                        id_itemestoque
                     ) 
                     VALUES (
                         ".$this->id."
@@ -62,26 +62,26 @@ class Client extends Person{
         Delete na tabela definida.
     */
 
-    public function deleteClient($property, $value)
+    public function deleteStockItem($property, $value)
     {
         //Aqui será inserido o código referente a alterações
-        $strsql = "DELETE FROM shsistema.tbcliente WHERE $property = $value;";
+        $strsql = "DELETE FROM shsistema.tbitemestoque WHERE $property = $value;";
     }
 
     /*
         Select na tabela definida.
     */
-
-    public function selectClient($value)
+    
+    public function selectStockItem($value)
     {
         //Aqui será inserido o código referente a seleção
-        $strgsql = "SELECT $value FROM shsistema.tbcliente;";
+        $strgsql = "SELECT $value FROM shsistema.tbitemestoque;";
     }
 
-    public function listClient()
+    public function listStockItem()
     {
         //Aqui será inserido o código referente a seleção
-        $strgsql = "SELECT * FROM shsistema.tbcliente;";
+        $strgsql = "SELECT * FROM shsistema.tbitemestoque;";
     }
 }
 
