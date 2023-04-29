@@ -15,14 +15,25 @@ class Product
         $this->img = $img;
     }
 
-//------------------------------------------------------//
+    //------------------------------------------------------//
     //Operações básicas de acesso ao objeto
-//------------------------------------------------------//
-    public function 
+    //------------------------------------------------------//
 
-//------------------------------------------------------//
-       // Operações básicas de persistência de dados 
-//------------------------------------------------------//
+    public function get($property)
+    {
+        return $this->$property;
+    }
+
+
+    public function set($property, $value)
+    {
+        $this->$property = $value;
+    }
+
+    //------------------------------------------------------//
+    // Operações básicas de persistência de dados 
+    //------------------------------------------------------//
+
     /*
         Insert na tabela definida conforme os atributos passados pelo construtor da classe.
     */
@@ -37,10 +48,10 @@ class Product
                         imagem_produto
                     ) 
                     VALUES (
-                        ".$this->name .",
-                        ".$this->price.",
-                        ".$this->quantity.", 
-                        ".$this->img."
+                        " . $this->name . ",
+                        " . $this->price . ",
+                        " . $this->quantity . ", 
+                        " . $this->img . "
                     );";
     }
 
@@ -57,10 +68,10 @@ class Product
                         qnt_produto, 
                         imagem_produto
                     ) VALUES (
-                        ".$this->name.",
-                        ".$this->price.",
-                        ".$this->quantity.", 
-                        ".$this->img."
+                        " . $this->name . ",
+                        " . $this->price . ",
+                        " . $this->quantity . ", 
+                        " . $this->img . "
                 );";
     }
 
@@ -77,10 +88,10 @@ class Product
                         qnt_produto, 
                         imagem_produto
                  ) VALUES (
-                         ".$this->name.",
-                         ".$this->price.",
-                         ".$this->quantity.", 
-                         ".$this->img."
+                         " . $this->name . ",
+                         " . $this->price . ",
+                         " . $this->quantity . ", 
+                         " . $this->img . "
                 );";
     }
 
@@ -90,6 +101,7 @@ class Product
     public function selectProduct()
     {
         //Aqui será inserido o código referente a seleção
-        $strsql = "SELECT * FROM shsistema.tbproduto;";
     }
+
+    ///dfjkhdjkfhsjdkfhsjdkhfjkdshfjkdhfjksdhfjkd
 }
