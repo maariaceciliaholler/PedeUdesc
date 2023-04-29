@@ -1,5 +1,4 @@
 <?php
-require_once 'db_connection.php';
 
 class Product
 {
@@ -16,9 +15,20 @@ class Product
         $this->img = $img;
     }
 
+<<<<<<< HEAD
     /*
         Operações básicas de persistência de dados 
     */
+=======
+//------------------------------------------------------//
+    //Operações básicas de acesso ao objeto
+//------------------------------------------------------//
+    public function 
+
+//------------------------------------------------------//
+       // Operações básicas de persistência de dados 
+//------------------------------------------------------//
+>>>>>>> 3fb5dd5 (style: ajustado comentarios)
     /*
         Insert na tabela definida conforme os atributos passados pelo construtor da classe.
     */
@@ -33,10 +43,10 @@ class Product
                         imagem_produto
                     ) 
                     VALUES (
-                        " . $this->name . ",
-                        " . $this->price . ",
-                        " . $this->quantity . ", 
-                        " . $this->img . "
+                        ".$this->name .",
+                        ".$this->price.",
+                        ".$this->quantity.", 
+                        ".$this->img."
                     );";
     }
 
@@ -53,10 +63,10 @@ class Product
                         qnt_produto, 
                         imagem_produto
                     ) VALUES (
-                        " . $this->name . ",
-                        " . $this->price . ",
-                        " . $this->quantity . ", 
-                        " . $this->img . "
+                        ".$this->name.",
+                        ".$this->price.",
+                        ".$this->quantity.", 
+                        ".$this->img."
                 );";
     }
 
@@ -66,6 +76,18 @@ class Product
     public function deleteProduct()
     {
         //Aqui será inserido o código referente a alterações
+        $strsql = "DELETE 
+                    shsistema.tbproduto(
+                        nome_produto, 
+                        preco_produto, 
+                        qnt_produto, 
+                        imagem_produto
+                 ) VALUES (
+                         ".$this->name.",
+                         ".$this->price.",
+                         ".$this->quantity.", 
+                         ".$this->img."
+                );";
     }
 
     /*
@@ -74,9 +96,9 @@ class Product
     public function selectProduct()
     {
         //Aqui será inserido o código referente a seleção
+<<<<<<< HEAD
+=======
+        $strsql = "SELECT * FROM shsistema.tbproduto;";
+>>>>>>> 3fb5dd5 (style: ajustado comentarios)
     }
 }
-
-$product = new Product("Product 1", 10, 10, 'oi');
-$product->insertNewProduct();
-echo "foi";
