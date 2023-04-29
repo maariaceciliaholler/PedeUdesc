@@ -1,46 +1,46 @@
-<<?php
+<?php
 
-    class Product
+class Product
+{
+    private $name;
+    private $price;
+    private $quantity;
+    private $img;
+
+    function __construct($name, $price, $quantity, $img)
     {
-        private $name;
-        private $price;
-        private $quantity;
-        private $img;
+        $this->name = $name;
+        $this->price = $price;
+        $this->quantity = $quantity;
+        $this->img = $img;
+    }
 
-        function __construct($name, $price, $quantity, $img)
-        {
-            $this->name = $name;
-            $this->price = $price;
-            $this->quantity = $quantity;
-            $this->img = $img;
-        }
+    //------------------------------------------------------//
+    //Operações básicas de acesso ao objeto:
+    //------------------------------------------------------//
 
-        //------------------------------------------------------//
-        //Operações básicas de acesso ao objeto:
-        //------------------------------------------------------//
-
-        public function get($property)
-        {
-            return $this->$property;
-        }
+    public function get($property)
+    {
+        return $this->$property;
+    }
 
 
-        public function set($property, $value)
-        {
-            $this->$property = $value;
-        }
+    public function set($property, $value)
+    {
+        $this->$property = $value;
+    }
 
-        //------------------------------------------------------//
-        // Operações básicas de persistência de dados:
-        //------------------------------------------------------//
+    //------------------------------------------------------//
+    // Operações básicas de persistência de dados:
+    //------------------------------------------------------//
 
-        /*
+    /*
         Insert na tabela definida.
-    */
-        public function insertNewProduct()
-        {
-            //Aqui será inserido o código referente a alterações
-            $strsql = "INSERT INTO 
+     */
+    public function insertNewProduct()
+    {
+        //Aqui será inserido o código referente a alterações
+        $strsql = "INSERT INTO 
                     shsistema.tbproduto (
                         nome_produto, 
                         preco_produto, 
@@ -53,15 +53,15 @@
                         " . $this->quantity . ", 
                         " . $this->img . "
                     );";
-        }
+    }
 
-        /*
+    /*
         Update na tabela definida.
     */
-        public function updateProduct()
-        {
-            //Aqui será inserido o código referente a alterações
-            $strsql = "UPDATE 
+    public function updateProduct()
+    {
+        //Aqui será inserido o código referente a alterações
+        $strsql = "UPDATE 
                     shsistema.tbproduto(
                         nome_produto, 
                         preco_produto, 
@@ -73,29 +73,29 @@
                         " . $this->quantity . ", 
                         " . $this->img . "
                 );";
-        }
+    }
 
-        /*
+    /*
         Delete na tabela definida.
     */
-        public function deleteProduct($property, $value)
-        {
-            //Aqui será inserido o código referente a alterações
-            $strsql = "DELETE FROM shsistema.tbproduto WHERE $property = $value;";
-        }
+    public function deleteProduct($property, $value)
+    {
+        //Aqui será inserido o código referente a alterações
+        $strsql = "DELETE FROM shsistema.tbproduto WHERE $property = $value;";
+    }
 
-        /*
+    /*
         Select na tabela definida.
     */
-        public function selectProduct($value)
-        {
-            //Aqui será inserido o código referente a seleção
-            $strgsql = "SELECT $value FROM shsistema.tbproduto;";
-        }
-
-        public function listProducts()
-        {
-            //Aqui será inserido o código referente a seleção
-            $strgsql = "SELECT * FROM shsistema.tbproduto;";
-        }
+    public function selectProduct($value)
+    {
+        //Aqui será inserido o código referente a seleção
+        $strgsql = "SELECT $value FROM shsistema.tbproduto;";
     }
+
+    public function listProducts()
+    {
+        //Aqui será inserido o código referente a seleção
+        $strgsql = "SELECT * FROM shsistema.tbproduto;";
+    }
+}
