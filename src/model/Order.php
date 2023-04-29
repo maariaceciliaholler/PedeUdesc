@@ -1,7 +1,7 @@
 <?php
 
 class Order{
-    private $id;
+    private $id; //coloquei o id
     private $date_order_closure;
 
     function __construct($id, $date_order_closure)
