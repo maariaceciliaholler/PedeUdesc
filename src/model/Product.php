@@ -16,7 +16,7 @@ class Product
     }
 
     //------------------------------------------------------//
-    //Operações básicas de acesso ao objeto
+    //Operações básicas de acesso ao objeto:
     //------------------------------------------------------//
 
     public function get($property)
@@ -31,11 +31,11 @@ class Product
     }
 
     //------------------------------------------------------//
-    // Operações básicas de persistência de dados 
+    // Operações básicas de persistência de dados:
     //------------------------------------------------------//
 
     /*
-        Insert na tabela definida conforme os atributos passados pelo construtor da classe.
+        Insert na tabela definida.
     */
     public function insertNewProduct()
     {
@@ -76,7 +76,7 @@ class Product
     }
 
     /*
-        Delete na tabela definida
+        Delete na tabela definida.
     */
     public function deleteProduct()
     {
@@ -98,10 +98,15 @@ class Product
     /*
         Select na tabela definida.
     */
-    public function selectProduct()
+    public function selectProduct($value)
     {
         //Aqui será inserido o código referente a seleção
+        $strgsql = "SELECT $value FROM shsistema.tbproduto";
     }
 
-    ///dfjkhdjkfhsjdkfhsjdkhfjkdshfjkdhfjksdhfjkd
+    public function listProducts()
+    {
+        //Aqui será inserido o código referente a seleção
+        $strgsql = "SELECT * FROM shsistema.tbproduto";
+    }
 }
