@@ -78,21 +78,10 @@ class Product
     /*
         Delete na tabela definida.
     */
-    public function deleteProduct()
+    public function deleteProduct($property, $value)
     {
         //Aqui será inserido o código referente a alterações
-        $strsql = "DELETE 
-                    shsistema.tbproduto(
-                        nome_produto, 
-                        preco_produto, 
-                        qnt_produto, 
-                        imagem_produto
-                 ) VALUES (
-                         " . $this->name . ",
-                         " . $this->price . ",
-                         " . $this->quantity . ", 
-                         " . $this->img . "
-                );";
+        $strsql = "DELETE FROM shsistema.tbproduto WHERE $property = $value;";
     }
 
     /*
@@ -101,12 +90,12 @@ class Product
     public function selectProduct($value)
     {
         //Aqui será inserido o código referente a seleção
-        $strgsql = "SELECT $value FROM shsistema.tbproduto";
+        $strgsql = "SELECT $value FROM shsistema.tbproduto;";
     }
 
     public function listProducts()
     {
         //Aqui será inserido o código referente a seleção
-        $strgsql = "SELECT * FROM shsistema.tbproduto";
+        $strgsql = "SELECT * FROM shsistema.tbproduto;";
     }
 }
