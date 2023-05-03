@@ -6,6 +6,7 @@
         private $db_name;
         private $user;
         private $password;
+        private $connection;
 
         public function __construct(){
             $this->host = "database_service";
@@ -13,6 +14,8 @@
             $this->db_name = "my_db";
             $this->user = "my_user";
             $this->password = "12345";
+
+            $this->connection = $this->open();
         }
 
         //------------------------------------------------------//
@@ -24,30 +27,39 @@
          */
         public function open(){
             try {
-                $dbConn = pg_connect("host=".$this->host." port=".$this->host." dbname=".$this->host." user=".$this->host." password=".$this->host."");
-                if (!$dbConn) {
+                $this->connection = pg_connect("host=".$this->host." port=".$this->host." dbname=".$this->host." user=".$this->host." password=".$this->host."");
+                if (!$this->connection) {
                     throw new Exception();
                 }
-                return $dbConn;
             } catch (Exception $e) {
-                return $e->getCode();
+                echo $e->getCode();
             }
         }
 
         //------------------------------------------------------//
-        // Métodos de Persistência e Controle
+        // Métodos de Persistência
         //------------------------------------------------------//
 
-        public function exec($dtbLink, $strSql){
-            try {
-                $result = pg_exec($dtbLink, $strSql);
-                if (!$dbConn) {
-                    throw new Exception();
-                }
-                return $dbConn;
-            } catch (Exception $e) {
-                return $e->getCode();
+        /*
+         *
+         */
+        public function exec($strSql){
+
+            $result = pg_query($this->conn, $strSql);
+            if (!$result) {
+                return [ "Erro na consulta: " . pg_last_error($this->conn);
             }
+        }
+
+        //------------------------------------------------------//
+        // Métodos de Controle
+        //------------------------------------------------------//
+
+        /*
+         *
+         */
+        public function getLastError($strSql){
+            return pg_last_error($this->conn);
         }
 
     }
