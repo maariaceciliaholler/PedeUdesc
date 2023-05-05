@@ -364,9 +364,11 @@ button {
     text-transform: uppercase;
 }
 
-.contact_bt a:hover {
-    color: #ffffff;
-    background-color: #000;
+.dropdown-menu a {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    text-align: center;
 }
 
 .fa-angle-right:before {
