@@ -19,7 +19,10 @@ class Product
         $this->img = $img;
     }
 
-    function loadObject($arrProduct)
+    /*
+     *
+     */
+    static function loadObject($arrProduct)
     {
         $objProduct = new Product();
         $objProduct->set("id", $arrProduct["id_produto"]);
@@ -77,9 +80,8 @@ class Product
                         ".$this->img."
                     );";
 
-        $result = $dtbConn->exec($strSql);
-        if (!$result) {
-            return $dtbConn->getLastError();
+        if (!$this->dtbLink->execSql($strSql)) {
+            return $this->dtbLink->getMessage();
         }
         return ["dsMsg" => "ok"];
     }
@@ -89,27 +91,21 @@ class Product
     */
     public function updateProduct()
     {
-        $dtbConn = $this->dtbLink;
         if($this->dtbLink == null)
-            $dtbConn = new DtbLink();
+            $this->dtbLink = new DtbLink();
 
         $strSql = " UPDATE 
-                        shsistema.tbproduto(
-                            nome_produto, 
-                            preco_produto, 
-                            qnt_produto, 
-                            imagem_produto
-                        ) 
-                    VALUES (
-                        ".$this->name.",
-                        ".$this->price.",
-                        ".$this->quantity.", 
-                        ".$this->img."
-                    );";
+                        shsistema.tbproduto
+                    SET
+                        nome_produto = ".$this->name.",
+                        preco_produto = ".$this->price.",
+                        qnt_produto = ".$this->quantity.", 
+                        imagem_produto = ".$this->img."
+                    WHERE
+                        id_produto = ".$this->id.";";
 
-        $result = $dtbConn->exec($strSql);
-        if (!$result) {
-            return $dtbConn->getLastError();
+        if (!$this->dtbLink->execSql($strSql)) {
+            return $this->dtbLink->getMessage();
         }
         return ["dsMsg" => "ok"];
     }
@@ -117,16 +113,17 @@ class Product
     /*
         Delete na tabela definida.
     */
-    public function deleteProduct($strCondicao, $strOrdenacao)
+    public function deleteProduct()
     {
-        $dtbConn = $this->dtbLink;
+
         if($this->dtbLink == null)
-            $dtbConn = new DtbLink();
+            $this->dtbLink = new DtbLink();
 
         $strSql = " DELETE FROM 
                         shsistema.tbproduto 
                     WHERE 
-                        TRUE ";
+                        id_produto = ".$this->id;
+
     }
 
     //------------------------------------------------------//
@@ -136,19 +133,51 @@ class Product
     /*
         Select na tabela definida.
     */
-    public function selectProduct($id)
+    public static function selectProduct($idProduct)
     {
-        //Aqui será inserido o código referente a seleção
-        $strgsql = "SELECT * FROM shsistema.tbproduto;";
+
+        $dtbConn = new DtbLink();
+
+        $strSql = " SELECT
+                        *
+                    FROM
+                        shsistema.tbproduto
+                    WHERE
+                        id_produto = ".$idProduct;
+
+        if (!$dtbConn->query($strSql)) {
+            return $dtbConn->getMessage()['dsMsg'] . '<br> Sql: ' . $strSql;
+        } else {
+            $resSet = $dtbConn->fetchArray();
+            $objTbProduct = self::loadObject($resSet);
+            return $objTbProduct;
+        }
     }
 
-    public function listProducts()
+    public static function listProducts($strCondicao, $strOrdenacao)
     {
-        //Aqui será inserido o código referente a seleção
+        $dtbConn = new DtbLink();
 
-        $strSql = "SELECT * FROM shsistema.tbproduto;";
+        $strSql = " SELECT
+                        *
+                    FROM
+                        shsistema.tbproduto
+                    WHERE
+                        TRUE ";
 
-        $rows = pg_fetch_all($result);
-        return $rows;
+        if ($strCondicao != "")
+            $strSql .= $strCondicao;
+
+        if ($strOrdenacao != "")
+            $strSql .= " ORDER BY " . $strOrdenacao;
+
+        if (!$dtbConn->query($strSql)) {
+            return $dtbConn->getMessage()['dsMsg'] . '<br> Sql: ' . $strSql;
+        } else {
+            while ($resSet = $dtbConn->fetchArray()) {
+                $aroTbProduct[] = self::loadObject($resSet);
+            }
+            return $aroTbProduct;
+        }
     }
 }
