@@ -59,7 +59,7 @@
         /*
          *
          */
-        public function FetchArray(){
+        public function fetchArray(){
             return pg_fetch_array($this->query);
         }
 
