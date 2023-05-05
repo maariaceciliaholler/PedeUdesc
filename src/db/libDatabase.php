@@ -47,7 +47,7 @@
 
             $result = pg_query($this->conn, $strSql);
             if (!$result) {
-                return [ "Erro na consulta: " . pg_last_error($this->conn);
+                return [ "Erro na consulta: " . pg_last_error($this->conn)];
             }
         }
 
