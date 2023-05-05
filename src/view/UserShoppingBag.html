@@ -35,14 +35,21 @@
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <div class="logo"><a href="UserHome.html"><img src="images/logo.png"></a></div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item"><a href="#"><img src="images/icone_sacola_home.png" style="width: 50px; padding-top: 10px;"></a></li>
-                     <li class="nav-item"><a href="#"><img src="images/icone_pessoa_home.png" style="width: 50px; padding-top: 10px;"></a></li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <img src="images/icone_pessoa_home.png" style="width: 50px; padding-top: 3px;">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <a class="dropdown-item" href="Login.html">Sair</a>
+                        </div>
+                     </li>
                      <p>Olá!</p>
                   </ul>
                </div>
@@ -53,7 +60,7 @@
       <!-- furnitures section start -->
       <div class="furnitures_section layout_padding">
          <div class="container">
-            <p class="ipsum_text" style="text-align: left;">Voltar</p>
+            <p class="ipsum_text" style="text-align: left;"><a href="UserHome.html" style="color:black; text-transform: uppercase;">Voltar</a></p>
             <h1 class="our_text" style="text-align: left;">Minha sacola</h1>
             <div class="furnitures_section2 layout_padding">
                <div class="row">
@@ -68,7 +75,9 @@
                      </div>
                      <!-- <h3 class="temper_text">Tempor incididunt ut labore et dolore</h3> -->
                      <p class="dololr_text" style="text-align: center;"> <strong><b>GUARANÁ ANTARCTICA</b></strong></p>
-                     <p class="dololr_text" style="text-align: center;"><b>Remover item</b></p>
+                     <div class="contact_bt_main">
+                        <div class="contact_bt_remove" style="text-align: center;"><a href="contact.html">Remover</a></div>
+                     </div>
                   </div>
                   <div class="col-md-6">
                      <div class="container_main">

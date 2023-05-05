@@ -364,11 +364,34 @@ button {
     text-transform: uppercase;
 }
 
+.contact_bt a:hover {
+    color: #ffffff;
+    background-color: #000;
+}
+
+.contact_bt_remove a {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #e94242;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.contact_bt_remove a:hover {
+    color: #ffffff;
+    background-color: #000;
+}
+
 .dropdown-menu a {
     width: 100%;
     float: left;
     font-size: 18px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .fa-angle-right:before {
