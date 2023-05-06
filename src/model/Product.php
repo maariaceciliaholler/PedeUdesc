@@ -148,7 +148,7 @@ class Product
                     WHERE
                         id_produto = ".$idProduct;
 
-        if (!$dtbConn->query($strSql)) {
+        if (!$dtbConn->execQuery($strSql)) {
             return $dtbConn->getMessage()['dsMsg'] . '<br> Sql: ' . $strSql;
         } else {
             $resSet = $dtbConn->fetchArray();
@@ -173,7 +173,7 @@ class Product
         if ($strOrdenacao != "")
             $strSql .= " ORDER BY " . $strOrdenacao;
 
-        if (!$dtbConn->query($strSql)) {
+        if (!$dtbConn->execQuery($strSql)) {
             return $dtbConn->getMessage()['dsMsg'] . '<br> Sql: ' . $strSql;
         } else {
             while ($resSet = $dtbConn->fetchArray()) {
