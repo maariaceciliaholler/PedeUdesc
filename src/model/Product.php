@@ -62,9 +62,8 @@ class Product
      */
     public function insertProduct()
     {
-        $dtbConn = $this->dtbLink;
         if($this->dtbLink == null)
-            $dtbConn = new DtbLink();
+            $this->dtbLink = new DtbLink();
 
         $strSql = " INSERT INTO 
                         shsistema.tbproduto (
@@ -124,6 +123,10 @@ class Product
                     WHERE 
                         id_produto = ".$this->id;
 
+        if (!$this->dtbLink->execSql($strSql)) {
+            return $this->dtbLink->getMessage();
+        }
+        return ["dsMsg" => "ok"];
     }
 
     //------------------------------------------------------//
@@ -149,8 +152,7 @@ class Product
             return $dtbConn->getMessage()['dsMsg'] . '<br> Sql: ' . $strSql;
         } else {
             $resSet = $dtbConn->fetchArray();
-            $objTbProduct = self::loadObject($resSet);
-            return $objTbProduct;
+            return self::loadObject($resSet);
         }
     }
 
@@ -181,3 +183,4 @@ class Product
         }
     }
 }
+?>
