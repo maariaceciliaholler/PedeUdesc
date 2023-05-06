@@ -32,7 +32,7 @@
          */
         public function open(){
             try {
-                $this->connection = pg_connect("host=".$this->host." port=".$this->host." dbname=".$this->host." user=".$this->host." password=".$this->host."");
+                $this->connection = pg_connect("host=".$this->host." port=".$this->port." dbname=".$this->db_name." user=".$this->user." password=".$this->password."");
                 if (!$this->connection) {
                     throw new Exception();
                 }
@@ -51,7 +51,7 @@
         public function execQuery($strSql){
 
             $this->sql = $strSql;
-            $this->query = @pg_query($this->lnkServer,$this->sql);
+            $this->query = @pg_query($this->connection,$this->sql);
             return $this->query;
 
         }
@@ -86,28 +86,28 @@
          *
          */
         public function begin(){
-            $this->qryServer = pg_query($this->lnkServer,"begin;");
+            $this->query = pg_query($this->connection,"begin;");
         }
 
         /*
          *
          */
         public function commit(){
-            $this->qryServer = pg_query($this->lnkServer,"commit;");
+            $this->query = pg_query($this->connection,"commit;");
         }
 
         /*
          *
          */
         public function rollback(){
-            $this->qryServer = pg_query($this->lnkServer,"rollback;");
+            $this->query = pg_query($this->connection,"rollback;");
         }
         //-----------------------------------------------------------------------------------------------------------------------//
 
         public function getMessage(){
 
             $arrMsg = array();
-            switch($this->qryErrorCodeServer){
+            switch($this->error_code){
                 case '23505':{
                     $arrMsg['flTipo'] = 'A';
                     $arrMsg['dsMsg'] = '&raquo; Já existe um registro cadastrado com os dados informados!<br>';
@@ -120,27 +120,27 @@
                 }
                 case '3F000':{
                     $arrMsg['flTipo'] = 'E';
-                    $arrMsg['dsMsg'] = 'Schema não encontrado no banco de dados!<br>Erro:'.pg_last_error().'<br>'.$this->strQueryServer.'<br>';
+                    $arrMsg['dsMsg'] = 'Schema não encontrado no banco de dados!<br>Erro:'.pg_last_error().'<br>'.$this->sql.'<br>';
                     break;
                 }
                 case '42P01':{
                     $arrMsg['flTipo'] = 'E';
-                    $arrMsg['dsMsg'] = 'Erro de Sistema nº '.$this->qryErrorCodeServer.' tabela não existe no banco de dados. <br>Erro:'.pg_last_error().'<br>'.$this->strQueryServer.'<br>';
+                    $arrMsg['dsMsg'] = 'Erro de Sistema nº '.$this->error_code.' tabela não existe no banco de dados. <br>Erro:'.pg_last_error().'<br>'.$this->sql.'<br>';
                     break;
                 }
                 case '42703':{
                     $arrMsg['flTipo'] = 'E';
-                    $arrMsg['dsMsg'] = 'Erro de Sistema nº '.$this->qryErrorCodeServer.' coluna não existe no banco de dados. <br>Erro:'.pg_last_error().'<br>'.$this->strQueryServer.'<br>';
+                    $arrMsg['dsMsg'] = 'Erro de Sistema nº '.$this->error_code.' coluna não existe no banco de dados. <br>Erro:'.pg_last_error().'<br>'.$this->sql.'<br>';
                     break;
                 }
                 case '42601':{
                     $arrMsg['flTipo'] = 'E';
-                    $arrMsg['dsMsg'] = 'Erro de Sql nº '.$this->qryErrorCodeServer.' sintaxe do comando incorreta. <br>'.pg_last_error().'<br>'.$this->strQueryServer.'<br>';
+                    $arrMsg['dsMsg'] = 'Erro de Sql nº '.$this->error_code.' sintaxe do comando incorreta. <br>'.pg_last_error().'<br>'.$this->sql.'<br>';
                     break;
                 }
                 default:{
                     $arrMsg['flTipo'] = 'E';
-                    $arrMsg['dsMsg'] = 'Erro não catalogado: '.$this->qryErrorCodeServer.' <br>'.pg_last_error().'<br>Sql:'.$this->strQueryServer.'<br>';
+                    $arrMsg['dsMsg'] = 'Erro não catalogado: '.$this->error_code.' <br>'.pg_last_error().'<br>Sql:'.$this->sql.'<br>';
                     break;
                 }
             }
