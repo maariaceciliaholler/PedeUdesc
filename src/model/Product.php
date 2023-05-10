@@ -11,7 +11,7 @@ class Product
     //Propriedades Abstratas
     private $dtbLink;
 
-    function __construct($name, $price, $quantity, $img)
+    function __construct($name = "", $price = "", $quantity = "", $img = "")
     {
         $this->name = $name;
         $this->price = $price;
@@ -165,7 +165,7 @@ class Product
                     FROM
                         shsistema.tbproduto
                     WHERE
-                        TRUE ";
+                        1 = 1 ";
 
         if ($strCondicao != "")
             $strSql .= $strCondicao;

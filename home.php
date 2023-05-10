@@ -1,4 +1,3 @@
-
 <script type="text/javascript" src="src/view/js/custom.js"></script>
 
 <link rel="stylesheet" href="src/view/css/animate.min.css" />
@@ -36,7 +35,5 @@
     require_once "src/model/Product.php";
 
     require_once "src/view/Login.php";
-
-    $teste = Product::listProducts("","");
 
 ?>

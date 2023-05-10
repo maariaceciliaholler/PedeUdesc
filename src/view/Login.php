@@ -35,7 +35,7 @@
 <div class="banner_section layout_padding">
     <div class="container">
         <div class="col-md-5 offset-md-4 bg-white"><br><br>
-            <center><img src="images/logo.png"><br></center>
+            <center><img src="C:/xampp/htdocs/PedeUdesc/src/view/images/logo.png"><br></center>
             <i><b><p class="there_text">Login</p></b></i>
             <p class="">
             <div class="">
@@ -49,18 +49,12 @@
             <br><br><br>
             <center><b class="there_text">━━━━━━━━━ou━━━━━━━━━━</b></center>
             <br>
-            <center><i><b class="there_text"><a a href="Register.html">Cadastre-se</a></b></i></center>
+            <center><i><b class="there_text"><a href="Register.html">Cadastre-se</a></b></i></center>
             <br><br>
             </p>
         </div>
 
         <?php
-            if($teste){
-                foreach ($teste as $te){
-                    echo $te->get("name_product");
-                }
-            }
-
         ?>
     </div>
 </div>

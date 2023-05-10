@@ -20,7 +20,7 @@
             $this->user = "my_user";
             $this->password = "12345";
 
-            $this->connection = $this->open();
+            $this->open();
         }
 
         //------------------------------------------------------//
@@ -73,9 +73,10 @@
         public function execSql($strSql){
 
             $this->sql = $strSql;
-            $this->query = pg_send_query($this->conn, $this->sql);
-            $strStatus = pg_get_result($this->conn);
+            $this->query = pg_send_query($this->connection, $this->sql);
+            $strStatus = pg_get_result($this->connection);
 
+            echo $strStatus;
             $this->error_code = pg_result_error_field($strStatus, PGSQL_DIAG_SQLSTATE);
 
             return $this->error_code == '';
